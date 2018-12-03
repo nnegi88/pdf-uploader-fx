@@ -2,7 +2,6 @@ package com.cvt.pdfuploader.service.impl;
 
 import com.cvt.pdfuploader.dal.EventDal;
 import com.cvt.pdfuploader.service.EventService;
-import javafx.stage.FileChooser;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

@@ -11,10 +11,6 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ConfigurableApplicationContext;
 
-import java.nio.file.Files;
-import java.nio.file.Paths;
-
-
 @SpringBootApplication
 public class PdfUploaderApplication extends Application {
 	private Parent rootNode;
