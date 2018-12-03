@@ -1,6 +1,7 @@
 package com.cvt.pdfuploader.dal.impl;
 
 import com.cvt.pdfuploader.dal.EventDal;
+import javafx.stage.DirectoryChooser;
 import javafx.stage.FileChooser;
 import org.springframework.stereotype.Repository;
 
@@ -17,17 +18,22 @@ import java.util.Map;
 @Repository
 public class EventDalImpl implements EventDal {
     @Override
-    public List<File> getFiles() {
-        FileChooser fileChooser = new FileChooser();
-        fileChooser.setTitle("Select .pdf files");
-        fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("PDF","*.pdf"));
-        List<File> files = new ArrayList<>();
-        try{
-            files = fileChooser.showOpenMultipleDialog(null);
-        } catch (Exception e){
-            System.out.println(e.getMessage());
+    public int countFiles(File[] files) {
+        int count = 0;
+        for(File file : files){
+            if(file.isFile()){
+                if(file.getAbsolutePath().endsWith(".pdf"))
+                    count++;
+            }
         }
-        return files;
+        return count;
+    }
+
+    @Override
+    public File getDirectory() {
+        DirectoryChooser chooser = new DirectoryChooser();
+        chooser.setTitle("Select a directory");
+        return chooser.showDialog(null);
     }
 
     @Override

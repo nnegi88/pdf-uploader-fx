@@ -5,8 +5,8 @@ import java.util.List;
 import java.util.Map;
 
 public interface EventService {
-    int countFiles(List<File> files);
-    List<File> getFiles();
+    int countFiles(File[] files);
+    File getDirectory();
     void persistData(String data, int count);
     Map<String, String> getPersistedData();
 }

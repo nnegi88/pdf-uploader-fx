@@ -22,10 +22,10 @@ public class EventController implements Initializable{
     @Autowired private EventService eventService;
 
     @FXML private void browseOperation() throws IOException {
-        List<File> files = eventService.getFiles();
-        if (!files.isEmpty()){
-            String data = files.get(0).getParent();
-            int count = eventService.countFiles(files);
+        File directory = eventService.getDirectory();
+        if (directory!=null){
+            String data = directory.getAbsolutePath();
+            int count = eventService.countFiles(directory.listFiles());
             eventService.persistData(data, count);
             textField.setText(data);
             label.setText("Count: "+count);

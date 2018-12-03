@@ -14,13 +14,13 @@ public class EventServiceImpl implements EventService{
     @Autowired private EventDal eventDal;
 
     @Override
-    public int countFiles(List<File> files) {
-        return files.size();
+    public int countFiles(File[] files) {
+        return eventDal.countFiles(files);
     }
 
     @Override
-    public List<File> getFiles() {
-        return eventDal.getFiles();
+    public File getDirectory() {
+        return eventDal.getDirectory();
     }
 
     @Override
